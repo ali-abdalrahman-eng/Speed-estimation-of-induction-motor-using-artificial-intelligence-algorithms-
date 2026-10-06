@@ -6,7 +6,7 @@
 [![Status](https://img.shields.io/badge/Status-Completed-brightgreen.svg)]()
 
 > 🎓 **Bachelor's Graduation Thesis Project**  
-> **Author:** Ali Abdulrahman  
+> **Author:** ALI ABD ALRAHMAN  
 > **Institution:** Higher Institute for Applied Sciences and Technology (HIAST), Damascus, Syria  
 > **Supervisors:** Dr. Alaa Marouf, Eng. Ahmad Al-Aissa, Eng. Taha Ibrahim  
 > **Evaluation Score:** 84% (Class of 2025)  
