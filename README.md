@@ -56,3 +56,22 @@ $$M_{4 \times n} = \begin{bmatrix} V_{\alpha\beta} & I_{\alpha\beta} & P & Q \en
 * Programmed an **STM32** microcontroller in C to execute simultaneous multi-channel ADC sampling (2 phase voltages, 2 phase currents, and tachometer speed feedback for ground-truth validation).
 * Timed with internal hardware timer interrupts and real-time data streaming over USB CDC stack at high rates.
 * Collected over **72,000 real-world experimental data points** under dynamic acceleration, deceleration, frequency ramps, and step torque loading.
+## 📊 Experimental Results & Performance Benchmark
+
+### 1. Comparative Performance Overview
+
+| Evaluation Metric / Scenario | Proposed ANN Observer (MLP 4-10-5-1) | Extended Kalman Filter (EKF) Benchmark |
+| :--- | :---: | :---: |
+| **Simulation Speed Estimation Error** | **$\le 3\text{ RPM}$** | $\approx 20\text{ RPM}$ |
+| **Experimental Error (Real Hardware)** | **$\le 15\text{ RPM}$** | Moderate to Severe Degradation |
+| **Dynamic Response Time** | Fast tracking with minimal overshoot | Lag during rapid frequency transitions |
+| **Noise & Harmonic Immunity** | Robust against OP07/Inverter harmonics | Highly sensitive to noise & parameter drift |
+
+---
+
+### 2. Key Experimental Findings & Dynamic Behaviors
+
+* **Steady-State Accuracy:** Under stable load conditions across nominal speed ranges, the ANN estimator maintained an absolute speed tracking error within **$\pm 15\text{ RPM}$**, leveraging the feature matrix inputs ($P, Q, V_{\alpha\beta}, I_{\alpha\beta}$).
+* **Dynamic Perturbations & Step Loads:** During sudden mechanical load torque changes and dynamic acceleration/deceleration frequency ramps, the neural network demonstrated instant convergence with no cumulative drift.
+* **Noise Mitigation Efficiency:** The custom active analog signal conditioning stage (OP07 active filtering and RC networks) reduced high-frequency inverter PWM switching noise, enabling accurate $12\text{-bit}$ ADC sampling on the STM32 target.
+* **Dataset Scale:** Validated against a dataset comprising over **$72,000$ experimental data points** collected in real time via high-speed USB CDC streaming to MATLAB.
