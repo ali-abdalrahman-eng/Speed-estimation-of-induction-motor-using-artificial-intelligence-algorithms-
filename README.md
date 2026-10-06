@@ -65,4 +65,24 @@ By eliminating mechanical speed sensors (encoders/tachometers), the system enhan
 │   └── schematics/     # Circuit schematics for signal conditioning and PCB layouts
 ├── data/               # Experimental datasets used for ANN training and validation
 └── README.md           # Project documentation
+## ✨ Engineering Stages & Key Innovations
 
+### 1. Dynamic Modeling & Control Simulation
+* Derived non-linear state-space equations of the squirrel-cage induction motor in the synchronous rotating (d-q) frame using Clarke and Park transformations.
+* Designed a closed-loop scalar V/f speed control system in MATLAB/Simulink driven by a 3-phase SPWM inverter.
+
+### 2. AI Neural Network & EKF Architecture
+* ANN Architecture: Custom Multi-Layer Perceptron (MLP) with a 4-10-5-1 layer structure.
+* Feature Matrix Construction: Constructed a feature matrix M combining V_alphabeta, I_alphabeta, active power P, and reactive power Q:
+
+  M = [ V_alphabeta , I_alphabeta , P , Q ]^T
+
+* Optimization: Trained using Bayesian Regularization Backpropagation (Levenberg-Marquardt optimization).
+
+### 3. Hardware Testbench & Signal Conditioning
+* Sensors: Integrated ZMPT101B voltage transformers and ACS712 Hall-effect current sensors.
+* Filtering & Scaling: Custom active analog low-pass filters using OP07 operational amplifiers shifting signals to 0 - 3.3V range.
+
+### 4. Embedded Firmware & Data Acquisition
+* Programmed STM32 microcontroller in C to execute simultaneous multi-channel ADC sampling.
+* Streaming over USB CDC in real-time. Collected over 72,000 real-world data points.
