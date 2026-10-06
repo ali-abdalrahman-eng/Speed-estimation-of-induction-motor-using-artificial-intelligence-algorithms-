@@ -37,7 +37,7 @@ By eliminating mechanical speed sensors (encoders/tachometers), the system enhan
 +-----------------------------------------------------------------------+
 ---
 
-##Key Features & Technical Highlights
+## Key Features & Technical Highlights
 
 * **Dynamic Motor Modeling:** Implementation of three-phase induction motor state equations in the stationary and synchronous rotating ($d-q$) reference frames.
 * **Neural Network Estimator:** 
@@ -53,7 +53,7 @@ By eliminating mechanical speed sensors (encoders/tachometers), the system enhan
 
 ---
 
-##📁 Repository Structure
+## 📁 Repository Structure
 
 ```text
 .
@@ -66,7 +66,7 @@ By eliminating mechanical speed sensors (encoders/tachometers), the system enhan
 ├── data/               # Experimental datasets used for ANN training and validation
 └── README.md           # Project documentation
 
-##Engineering Stages & Key Innovations
+## Engineering Stages & Key Innovations
 
 ### 1. Dynamic Modeling & Control Simulation
 * Derived non-linear state-space equations of the squirrel-cage induction motor in the synchronous rotating (d-q) frame using Clarke and Park transformations.
