@@ -6,7 +6,7 @@
 [![Status](https://img.shields.io/badge/Status-Completed-brightgreen.svg)]()
 
 > 🎓 **Bachelor's Graduation Thesis Project**  
-> **Author:** Ali Abdulrahman  
+> **Author:** ALI ABD ALRAHMAN  
 > **Institution:** Higher Institute for Applied Sciences and Technology (HIAST), Damascus  
 > 📄 **Full Graduation Thesis Report (90 Pages in Arabic):** Available in [`docs/Speed_Estimation_Induction_Motor_Graduation_Report.pdf`](./docs/)
 
