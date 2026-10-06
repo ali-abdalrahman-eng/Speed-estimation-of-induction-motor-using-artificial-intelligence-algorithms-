@@ -35,3 +35,33 @@ By eliminating mechanical speed sensors (encoders/tachometers), the system enhan
 |  +-----------------+                                  +------------+  |
 |                                                         (ANN / EKF)   |
 +-----------------------------------------------------------------------+
+---
+
+## ✨ Key Features & Technical Highlights
+
+* **Dynamic Motor Modeling:** Implementation of three-phase induction motor state equations in the stationary and synchronous rotating ($d-q$) reference frames.
+* **Neural Network Estimator:** 
+  * Multi-layer Perceptron (MLP) architecture trained using **Bayesian Regularization** and **Levenberg-Marquardt** backpropagation.
+  * Inputs: Measured stator voltages ($V_\alpha, V_\beta$) and stator currents ($I_\alpha, I_\beta$).
+  * Output: Estimated rotor speed ($\hat{\omega}_r$).
+* **Comparative Estimator (EKF):** Full state estimation incorporating non-linear Kalman filtering for real-time speed and flux tracking.
+* **Hardware Acquisition & Signal Conditioning:**
+  * Custom analog signal conditioning circuits for filtering and scaling high-voltage/current signals.
+  * **STM32** MCU firmware utilizing embedded timers and ADCs for high-frequency sampling.
+  * Real-time USB data stream to PC environment.
+* **Control Strategy:** Closed-loop Scalar Control ($V/f$) with estimated speed feedback.
+
+---
+
+## 📁 Repository Structure
+
+```text
+.
+├── docs/               # Full graduation thesis report (PDF format in Arabic)
+├── src/
+│   ├── matlab_simulink/# MATLAB scripts, training routines, and Simulink models
+│   └── stm32_firmware/ # STM32 firmware code (CubeMX .ioc, Core, USB middleware)
+├── hardware/
+│   └── schematics/     # Circuit schematics for signal conditioning and PCB layouts
+├── data/               # Experimental datasets used for ANN training and validation
+└── README.md           # Project documentation
