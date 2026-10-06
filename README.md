@@ -17,3 +17,21 @@
 This project focuses on the **sensorless speed estimation** of a three-phase induction motor using **Artificial Neural Networks (ANN)** and compares its dynamic performance against the classical **Extended Kalman Filter (EKF)**.
 
 By eliminating mechanical speed sensors (encoders/tachometers), the system enhances reliability, reduces physical footprint, and lowers overall system costs in demanding industrial drives.
+
+```text
++-----------------------------------------------------------------------+
+|                           SYSTEM ARCHITECTURE                         |
+|                                                                       |
+|  +-----------------+      +--------------------+      +------------+  |
+|  | 3-Phase Induction| ---> | Signal Conditioning| ---> |   STM32    |  |
+|  |     Motor       |      |     Hardware       |      | Microcontroller|
+|  +-----------------+      +--------------------+      +------------+  |
+|          ^                                                  |         |
+|          |                  V/f Control / Data          USB / Serial  |
+|          |                        Loop                      v         |
+|  +-----------------+                                  +------------+  |
+|  |   Inverter /    | <------------------------------- | MATLAB /   |  |
+|  |   Power Stage   |                                  | Simulink   |  |
+|  +-----------------+                                  +------------+  |
+|                                                         (ANN / EKF)   |
++-----------------------------------------------------------------------+
