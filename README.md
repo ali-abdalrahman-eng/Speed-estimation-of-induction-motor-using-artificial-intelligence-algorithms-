@@ -34,3 +34,17 @@ This project presents an end-to-end, high-precision **sensorless speed estimatio
 |  |   (3-Phase PWM) |                                  | Simulink   |  |
 |  +-----------------+                                  (ANN / EKF)     |
 +-----------------------------------------------------------------------+
+```
+## ✨ Engineering Stages & Key Innovations
+
+### 1. Dynamic Modeling & Control Simulation
+* Derived non-linear state-space equations of the squirrel-cage induction motor in the synchronous rotating ($d-q$) frame using Clarke and Park transformations.
+* Designed a closed-loop scalar $V/f$ speed control system in MATLAB/Simulink driven by a 3-phase Sine Pulse Width Modulation (SPWM) inverter.
+
+### 2. AI Neural Network & EKF Architecture
+* **ANN Architecture:** Custom Multi-Layer Perceptron (MLP) with a **4-10-5-1** layer structure.
+* **Feature Matrix Construction:** Constructed a compact feature matrix ($M_{4 \times n}$) combining stationary frame ($\alpha-\beta$) instantaneous active power ($P$), reactive power ($Q$), voltage magnitude ($V_{\alpha\beta}$), and current magnitude ($I_{\alpha\beta}$):
+
+$$M_{4 \times n} = \begin{bmatrix} V_{\alpha\beta} & I_{\alpha\beta} & P & Q \end{bmatrix}^T$$
+
+* **Optimization:** Trained using **Bayesian Regularization Backpropagation** (Levenberg-Marquardt optimization) to reduce computational complexity and prevent overfitting.
