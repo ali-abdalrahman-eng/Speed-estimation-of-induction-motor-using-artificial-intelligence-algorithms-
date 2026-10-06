@@ -48,3 +48,11 @@ This project presents an end-to-end, high-precision **sensorless speed estimatio
 $$M_{4 \times n} = \begin{bmatrix} V_{\alpha\beta} & I_{\alpha\beta} & P & Q \end{bmatrix}^T$$
 
 * **Optimization:** Trained using **Bayesian Regularization Backpropagation** (Levenberg-Marquardt optimization) to reduce computational complexity and prevent overfitting.
+### 3. Hardware Testbench & Signal Conditioning
+* **Sensors:** Integrated ZMPT101B voltage transformers and ACS712 Hall-effect current sensors.
+* **Filtering & Scaling:** Custom active analog low-pass filters using OP07 operational amplifiers and RC attenuation networks to eliminate switching noise from the inverter, shifting signal levels to the $0 - 3.3\text{V}$ range for MCU compatibility.
+
+### 4. Embedded Firmware & Data Acquisition
+* Programmed an **STM32** microcontroller in C to execute simultaneous multi-channel ADC sampling (2 phase voltages, 2 phase currents, and tachometer speed feedback for ground-truth validation).
+* Timed with internal hardware timer interrupts and real-time data streaming over USB CDC stack at high rates.
+* Collected over **72,000 real-world experimental data points** under dynamic acceleration, deceleration, frequency ramps, and step torque loading.
